@@ -125,19 +125,25 @@ Author URL: http://w3layouts.com
                     </div>
                 </div>
                 <div class="map-content-9">
-                    <form action="https://sendmail.w3layouts.com/submitForm" method="post">
+                    <form action="" method="post">
                         <div class="twice-two">
-                            <input type="text" class="form-control" name="w3lName" id="w3lName" placeholder="Name"
-                                required="">
-                            <input type="email" class="form-control" name="w3lSender" id="w3lSender" placeholder="Email"
-                                required="">
+                          <div>
+                            <input type="text" class="form-control" name="w3lName" id="nameText" placeholder="Name">
+                            <span id="nameSpan"></span>
+                          </div>
+                          <div>
+                            <input type="text" class="form-control" name="w3lSender" id="emailText" placeholder="Email">
+                            <span id="emailSpan"></span>
+                          </div>
                         </div>
                         <div class="twice">
-                            <input type="text" class="form-control" name="w3lSubject" id="w3lSubject"
-                                placeholder="Subject" required="">
+                            <input type="tel" class="form-control" name="w3lSubject" id="mobileText" oninput="this.value=this.value.replace(/[^\d]/,'')"
+                              maxlength="10" placeholder="Mobile">
+                              <span id="mobileSpan" ></span>
                         </div>
-                        <textarea name="w3lMessage" class="form-control" id="w3lMessage" placeholder="Message"
+                        <textarea name="w3lMessage" class="form-control" id="messageText" placeholder="Message"
                             required=""></textarea>
+                            <span id="messageSpan"></span>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
                         </div>
@@ -164,10 +170,10 @@ Author URL: http://w3layouts.com
         </div>
         <div class="col-lg-4 footer-right text-lg-right text-center mt-lg-0 mt-3">
           <ul class="social m-0 p-0">
-            <li><a href="#facebook"><span class="fa fa-facebook-official"></span></a></li>
-            <li><a href="#linkedin"><span class="fa fa-linkedin-square"></span></a></li>
-            <li><a href="#instagram"><span class="fa fa-instagram"></span></a></li>
-            <li><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+            <li><a href="https://www.facebook.com/shakkirnm/" target="_blank"><span class="fa fa-facebook-official"></span></a></li>
+            <li><a href="https://www.linkedin.com/in/shakkirnm/" target="_blank"><span class="fa fa-linkedin-square"></span></a></li>
+            <li><a href="https://www.instagram.com/shakkir_nm/" target="_blank"><span class="fa fa-instagram"></span></a></li>
+            <li><a href="https://twitter.com/shakkirnm" target="_blank"><span class="fa fa-twitter"></span></a></li>
           </ul>
         </div>
       </div>
@@ -409,6 +415,7 @@ Author URL: http://w3layouts.com
 
 <!-- bootstrap js -->
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/validation.js"></script>
 
 </body>
 
