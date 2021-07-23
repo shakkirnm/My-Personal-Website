@@ -75,6 +75,9 @@ function messageValidation(){
     }
 }
 
+function err(){
+    $('#errSpan').html("Please Fill correctly")
+}
 
 
 $('#nameText').keyup(function(){

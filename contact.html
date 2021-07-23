@@ -125,25 +125,28 @@ Author URL: http://w3layouts.com
                     </div>
                 </div>
                 <div class="map-content-9">
-                    <form action="" method="post">
+                    <form action="" id="submit-form">
                         <div class="twice-two">
                           <div>
-                            <input type="text" class="form-control" name="w3lName" id="nameText" placeholder="Name">
-                            <span id="nameSpan"></span>
+                            <input type="text" class="form-control" name="Name" id="nameText" placeholder="Name">
+                            <span class="err" id="nameSpan"></span>
                           </div>
                           <div>
-                            <input type="text" class="form-control" name="w3lSender" id="emailText" placeholder="Email">
-                            <span id="emailSpan"></span>
+                            <input type="text" class="form-control" name="Mail" id="emailText" placeholder="Email">
+                            <span class="err" id="emailSpan"></span>
                           </div>
                         </div>
                         <div class="twice">
-                            <input type="tel" class="form-control" name="w3lSubject" id="mobileText" oninput="this.value=this.value.replace(/[^\d]/,'')"
+                            <input type="tel" class="form-control" name="Mobile" id="mobileText" oninput="this.value=this.value.replace(/[^\d]/,'')"
                               maxlength="10" placeholder="Mobile">
-                              <span id="mobileSpan" ></span>
+                              <span class="err" id="mobileSpan" ></span>
                         </div>
-                        <textarea name="w3lMessage" class="form-control" id="messageText" placeholder="Message"
-                            required=""></textarea>
-                            <span id="messageSpan"></span>
+                        <textarea name="Message" class="form-control" id="messageText" placeholder="Message"
+                            ></textarea>
+                            <span class="err" id="messageSpan"></span>
+                            <div>
+                              <span class="err" id="errSpan"></span>
+                            </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
                         </div>
@@ -411,11 +414,39 @@ Author URL: http://w3layouts.com
     });
   });
 </script>
+
+<script>
+  $("#submit-form").submit((e)=>{
+      e.preventDefault()
+      if(nameValidation() && emailValidation() && mobileValidation() && messageValidation()){
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbzZwayDBDI_7sBpT1l7et0UCF8Cx6CDI7uGbz6tv-_YGRTQesRbhHez9PyHrseXCL6G/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (err){
+              alert("Something Error")
+
+          }
+      })
+    }else{
+      nameValidation()
+      emailValidation()
+      mobileValidation()
+      messageValidation()
+    }
+  })
+</script>
 <!--//MENU-JS-->
 
 <!-- bootstrap js -->
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/validation.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
 
