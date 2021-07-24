@@ -70,14 +70,12 @@ function messageValidation(){
         $('#messageSpan').html("")
         return true;
     }else{
-        $('#messageSpan').html=""
+        $('#messageSpan').html("")
         return true;
     }
 }
 
-function err(){
-    $('#errSpan').html("Please Fill correctly")
-}
+
 
 
 $('#nameText').keyup(function(){
