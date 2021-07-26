@@ -1,20 +1,14 @@
 function nameValidation(){
     var name=$('#nameText').val();
-    var letters= /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
+    var letters= /^[-a-zA-Z-()\s]+(\s+[-a-zA-Z-()\s]+)*$/;
     if(name==""){
-        $('#nameSpan').html("Filed is required")
+        $('#nameSpan').html("Field is required")
         return false;
-    }
-    else if(name.match(letters)){
+    }else if(name.match(letters)){
         $('#nameSpan').html("")
         return true;
-    }
-    else if(name==" "){
-       $('#nameSpan').html("Don't use Space at first letter")
-        return false;
-    }
-    else{
-        $('#nameSpan').html("Use only charactors") ;
+    }else{
+        $('#nameSpan').html("Use only characters") ;
         return false;
     }
 }
@@ -23,13 +17,9 @@ function emailValidation(){
     var email=$('#emailText').val();
     var letters= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(email==""){
-        $('#emailSpan').html("Filed is required")
+        $('#emailSpan').html("Field is required")
         return false;
-    }else if(email==" "){
-        $('#emailSpan').html("Don't use Space at first letter");
-        return false;
-    }
-    else if(email.match(letters)){
+    }else if(email.match(letters)){
         $('#emailSpan').html("")
         return true;
     }else{
@@ -42,7 +32,7 @@ function mobileValidation(){
     var mobile=$('#mobileText').val();
     var letters=/^\d{10}$/;
     if(mobile==""){
-        $('#mobileSpan').html("Filed is required")
+        $('#mobileSpan').html("Field is required")
         return false;
     }else if(mobile.match(letters)){
         $('#mobileSpan').html("")
@@ -57,14 +47,11 @@ function mobileValidation(){
 function messageValidation(){
     var message=$('#messageText').val();
     if(message==""){
-        $('#messageSpan').html("Filed is required")
-        return false;
-    }else if(message==" "){
-        $('#messageSpan').html("Don't use Space at first letter")
+        $('#messageSpan').html("Field is required")
         return false;
 
     }else if(message.length<=20){
-        $('#messageSpan').html("Enter minimum 20 character")
+        $('#messageSpan').html("Enter minimum 20 characters")
         return false;
     }else if(message.length>20){
         $('#messageSpan').html("")
@@ -90,3 +77,34 @@ $('#mobileText').keyup(function(){
 $('#messageText').keyup(function(){
     messageValidation();
 })
+
+
+
+  $("#submit-form").submit((e)=>{
+      e.preventDefault()
+      if(nameValidation() && emailValidation() && mobileValidation() && messageValidation()){
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbzZwayDBDI_7sBpT1l7et0UCF8Cx6CDI7uGbz6tv-_YGRTQesRbhHez9PyHrseXCL6G/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (err){
+              alert("Something Error")
+
+          }
+      })
+    }else{
+      nameValidation()
+      emailValidation()
+      mobileValidation()
+      messageValidation()
+    }
+  })
+
+  $('.navbar-collapse a').click(function(){
+    $(".navbar-collapse").collapse('hide');
+});

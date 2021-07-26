@@ -11732,3 +11732,46 @@ div#small-dialog iframe {
   color: #ff0000 ;
 }
 
+.icn{
+  font-size: 1.5rem;
+}
+.social  li{
+padding: 0 .5rem;
+}
+
+.aboutme {
+  margin-top: 90px;}
+  .aboutme h2.title {
+    font-size: 50px;
+    font-weight: 500; }
+  .aboutme .breadcrumbs-custom-path li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-weight: 400;
+    text-transform: capitalize; }
+  .aboutme .breadcrumbs-custom-path li span.fa {
+    font-size: 12px;
+    vertical-align: 2px; }
+
+@media only screen and (max-width: 991px) {
+  .aboutme {
+    margin-top: 80px; }
+  .aboutme h2.title {
+    font-size: 40px; } }
+
+@media only screen and (max-width: 480px) {
+  .aboutme {
+    margin-top: 75px; }
+  .aboutme h2.title {
+    font-size: 32px; }
+  .aboutme .breadcrumbs-custom-path li {
+    font-size: 1.1em; } }
+
+.baar{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
